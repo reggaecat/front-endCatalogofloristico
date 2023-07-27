@@ -1,0 +1,144 @@
+body{
+  background-color: #f6f0ff;
+  padding-top: 2%;
+}
+
+@keyframes fade-up{
+  0%{
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes fade-down{
+  0%{
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+.matform{
+  position: absolute;
+  max-width: 200px;
+}
+
+
+
+
+
+
+
+
+@media screen and (min-width: 768px) {
+  .catag {
+    padding-top: 5%;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    top: 10%;
+    grid-template-columns: repeat(4, 1fr);
+    animation: fade-down 1s;
+  }
+  .imagenes{
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    color:ghostwhite;
+    font-family: fantasy;
+    font-size:100%;
+}
+.imagenes:hover{
+  -webkit-transform: scale(1);
+  transform: scale(1)
+  }
+}
+
+/* Estilos para pantallas medianas */
+@media screen and (max-width: 767px) and (min-width: 576px) {
+  .catag {
+    padding-top: 5%;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    top: 10%;
+    animation: fade-down 1s;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .imagenes{
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    color:ghostwhite;
+    font-family: fantasy;
+    font-size:100%;
+}
+.imagenes:hover{
+  -webkit-transform: scale(1);
+  transform: scale(1)
+  }
+}
+
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 575px) {
+  .catag {
+    padding-top: 5%;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    top: 10%;
+    animation: fade-down 1s;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .imagenes{
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    color:ghostwhite;
+    font-family: fantasy;
+    font-size:100%;
+}
+.imagenes:hover{
+  -webkit-transform: scale(1);
+  transform: scale(1)
+  }
+}

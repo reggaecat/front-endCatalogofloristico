@@ -1,0 +1,69 @@
+
+<body>
+    <div class="nombre" *ngFor="let floristica of floristica">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image1"></div>
+          <mat-card-title>Nombre</mat-card-title>
+          <mat-card-subtitle>{{floristica.nombre}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    
+    <div class="familia" *ngFor="let floristica of floristica">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image2"></div>
+          <mat-card-title>Familia</mat-card-title>
+          <mat-card-subtitle>{{floristica.nombre_familia}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    
+    <div class="orden">
+      <mat-card class="example-card" *ngFor="let floristica of floristica">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image3"></div>
+          <mat-card-title>Orden</mat-card-title>
+          <mat-card-subtitle>{{floristica.nombre_orden}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    
+    <div class="nombreCientifico" *ngFor="let floristica of floristica">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image4"></div>
+          <mat-card-title>Nombre cientifico</mat-card-title>
+          <mat-card-subtitle>{{floristica.nombre_cientifica}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    
+    <div class="nombreQuichua" *ngFor="let floristica of floristica">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image5"></div>
+          <mat-card-title>Nombre en Quichua</mat-card-title>
+          <mat-card-subtitle>{{floristica.nombre_quichua}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    
+      <div class="imagen" *ngFor="let floristica of floristica" >
+        <img [src]="imagenUrl">
+      </div>
+      <div class="descripcion" *ngFor="let floristica of floristica">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Descripcion</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{floristica.descripcion}}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </body>

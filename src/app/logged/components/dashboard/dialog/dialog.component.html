@@ -1,0 +1,57 @@
+
+    <form [formGroup]="floristicaform">
+    <div class="forms-fields" >
+
+    <mat-form-field>
+        <mat-label>nombre</mat-label>
+        <input matInput formControlName="nombre" >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>nombre cientifico</mat-label>
+        <input matInput formControlName="nombre_cientifica">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>nombre en quichua</mat-label>
+        <input matInput formControlName="nombre_quichua">
+      </mat-form-field>
+      
+
+      <mat-form-field>
+        <mat-label>orden</mat-label>
+        <mat-select formControlName="nombre_orden">
+          <div *ngFor="let items of ordenes">
+          <mat-option [value]="items.nombre">
+            {{items.nombre}}</mat-option>
+          </div>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>familia</mat-label>
+        <mat-select formControlName="nombre_familia" >
+          <mat-option [value]="item.nombre" *ngFor="let item of familias">{{item.nombre}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Descripcion</mat-label>
+        <textarea matInput formControlName="descripcion"></textarea>
+      </mat-form-field>
+      <input  type="file" (change)="onFotoSeleccionada($event)" mat-raised-button color="primary">
+    </div>
+  </form>
+    <div class="square">
+      <div class="fotito" *ngIf="previsualizacion">
+        <img width="400px" height="400px" [src]="previsualizacion" alt="">
+      </div>
+    </div>
+
+    <div class="agregar">
+      <button mat-raised-button color="primary" [disabled]="loading" (click)="guardar()">
+        {{(loading) ? 'cargando': 'guardar'}}
+      </button>
+    </div>
+
+

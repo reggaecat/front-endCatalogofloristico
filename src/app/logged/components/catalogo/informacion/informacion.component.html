@@ -1,0 +1,85 @@
+<mat-sidenav-container class="app-sidenav-container">
+  <mat-sidenav class="app-sidenav" #sidenav opened="false" mode="over">
+  <mat-toolbar color="primary">
+      MENU
+  </mat-toolbar>
+  <mat-nav-list>
+    <a mat-list-item href="http://localhost:4200/dashboard">Dashboard </a>
+    <a mat-list-item href="http://localhost:4200/catalogo">Catalogo </a>
+    <a mat-list-item href="http://localhost:4200/main">Pagina principal </a>
+    </mat-nav-list>
+  </mat-sidenav>
+<div class="app-sidenav-content">
+  <app-toolbar (disparador)="sidenav.toggle()"></app-toolbar>   
+  <router-outlet></router-outlet>
+
+
+<body>
+<div class="nombre" >
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image1"></div>
+      <mat-card-title>Nombre</mat-card-title>
+      <mat-card-subtitle>{{plantaforms.nombre}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+<div class="familia">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image2"></div>
+      <mat-card-title>Familia</mat-card-title>
+      <mat-card-subtitle>{{plantaforms.nombre_familia}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+<div class="orden">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image3"></div>
+      <mat-card-title>Orden</mat-card-title>
+      <mat-card-subtitle>{{plantaforms.nombre_orden}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+<div class="nombreCientifico">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image4"></div>
+      <mat-card-title>Nombre cientifico</mat-card-title>
+      <mat-card-subtitle>{{plantaforms.nombre_cientifica}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+<div class="nombreQuichua">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image5"></div>
+      <mat-card-title>Nombre en Quichua</mat-card-title>
+      <mat-card-subtitle>{{plantaforms.nombre_quichua}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+  <div class="imagen">
+    <img [src]="imagenUrl">
+  </div>
+  <div class="descripcion">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Descripcion</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          {{plantaforms.descripcion}}
+      </mat-card-content>
+    </mat-card>
+  </div>
+</body>
+
+</div> 
+</mat-sidenav-container>

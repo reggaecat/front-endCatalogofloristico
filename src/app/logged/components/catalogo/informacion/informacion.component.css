@@ -1,0 +1,155 @@
+body{
+    background-color: #f6f0ff;
+    color: black;
+
+}
+
+/* Estilos para pantallas grandes */
+@media screen and (min-width: 768px) {
+  .nombre{
+    position: absolute;
+    padding-left: 50%;
+    padding-top: 5%;
+    animation: fade-down 1s;
+  }
+  .familia{
+    position: absolute;
+    padding-left: 50%;
+    padding-top: 12%;
+    animation: fade-down 1s;
+  }
+  .orden{
+    position: absolute;
+    padding-left: 50%;
+    padding-top: 19%;
+    animation: fade-down 1s;
+  }
+  .nombreCientifico{
+    position: absolute;
+    padding-left: 50%;
+    padding-top: 26%;
+    animation: fade-down 1s;
+  }
+  
+  .nombreQuichua{
+    position: absolute;
+    padding-left: 50%;
+    padding-top: 33%;
+    animation: fade-down 1s;
+  }
+  
+  .descripcion{
+    padding-top: 2%;
+    padding-left: 7%;
+    animation: fade-down 1s;
+  }
+  
+  .example-card {
+    position:flex;
+    max-width: 400px;
+    
+  }
+  
+  .example-header-image {
+    background-image: url('/assets/imagenes/planta (1).png');
+    background-size: cover;
+  }
+  .example-header-image1 {
+    background-image: url('/assets/imagenes/planta.png');
+    background-size: cover;
+  }
+  .example-header-image2 {
+    background-image: url('/assets/imagenes/tocon.png');
+    background-size: cover;
+  }
+  .example-header-image3 {
+    background-image: url('/assets/imagenes/maceta.png');
+    background-size: cover;
+  }
+  .example-header-image4 {
+    background-image: url('/assets/imagenes/te-verde.png');
+    background-size: cover;
+  }
+  .example-header-image5 {
+    background-image: url('/assets/imagenes/ficus.png');
+    background-size: cover;
+  }
+  .imagen{
+    display: flex;
+    animation: fade-up 1s;
+}
+.imagen img{
+    
+    padding-top: 5%;
+    padding-left: 5%;
+    height: 40%;
+    width: 40%;
+}
+}
+
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 767px) {
+  .nombre, .familia, .orden, .nombreCientifico, .nombreQuichua, .imagen {
+    width: 100%;
+    float: none;
+  }
+  .example-header-image {
+    background-image: url('/assets/imagenes/planta (1).png');
+    background-size: cover;
+  }
+  .example-header-image1 {
+    background-image: url('/assets/imagenes/planta.png');
+    background-size: cover;
+  }
+  .example-header-image2 {
+    background-image: url('/assets/imagenes/tocon.png');
+    background-size: cover;
+  }
+  .example-header-image3 {
+    background-image: url('/assets/imagenes/maceta.png');
+    background-size: cover;
+  }
+  .example-header-image4 {
+    background-image: url('/assets/imagenes/te-verde.png');
+    background-size: cover;
+  }
+  .example-header-image5 {
+    background-image: url('/assets/imagenes/ficus.png');
+    background-size: cover;
+  }
+  .imagen{
+    display: flex;
+    animation: fade-up 1s;
+}
+.imagen img{
+    margin: auto;
+
+    height: 100%;
+    width: 100%;
+}
+}
+
+
+
+@keyframes fade-up{
+    0%{
+      opacity: 0;
+      transform: translateY(30px) scale(0.9);
+    }
+    100%{
+      opacity: 1;
+      transform: translateY(0px) scale(1);
+    }
+  }
+  
+  @keyframes fade-down{
+    0%{
+      opacity: 0;
+      transform: translateY(-30px) scale(0.9);
+    }
+    100%{
+      opacity: 1;
+      transform: translateY(0px) scale(1);
+    }
+  }
+

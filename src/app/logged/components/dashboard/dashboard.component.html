@@ -1,0 +1,195 @@
+<mat-sidenav-container class="app-sidenav-container">
+  <mat-sidenav class="app-sidenav" #sidenav opened="false" mode="over">
+  <mat-toolbar color="primary">
+      MENU
+  </mat-toolbar>
+  <mat-nav-list>
+      <a mat-list-item href="http://localhost:4200/dashboard">Dashboard </a>
+      <a mat-list-item href="http://localhost:4200/catalogo">Catalogo </a>
+      <a mat-list-item href="http://localhost:4200/main">main </a>
+    </mat-nav-list>
+  </mat-sidenav>
+<div class="app-sidenav-content">
+  <app-toolbar (disparador)="sidenav.toggle()"></app-toolbar>   
+  <router-outlet></router-outlet>
+
+
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header >
+          <mat-card-title >
+            Listado de flora
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="toogleTag(1)">Flora</button>
+              <button mat-menu-item (click)="toogleTag(2)">Orden</button>
+              <button mat-menu-item (click)="toogleTag(3)">Familia</button>
+            </mat-menu>
+            <button mat-raised-button color="primary" (click)="abrirdialogAgregar()">Agregar</button>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content" >
+          <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+          </mat-form-field>
+
+          <div class="mat-elevation-z8" [hidden]="showMe">
+            <table mat-table [dataSource]="dataSource">
+              <!-- Position Column -->
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.id_floristica}} </td>
+              </ng-container>
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+              </ng-container>
+          
+              <!-- Weight Column -->
+              <ng-container matColumnDef="nombre_cientifico">
+                <th mat-header-cell *matHeaderCellDef> Nombre cientifico </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombre_cientifica}} </td>
+              </ng-container>
+          
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="nombre_quichua">
+                <th mat-header-cell *matHeaderCellDef> nombre quichua" </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombre_quichua}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="nombre_familia">
+                <th mat-header-cell *matHeaderCellDef> nombre familia </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombre_familia}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="nombre_orden">
+                <th mat-header-cell *matHeaderCellDef> nombre orden </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombre_orden}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="descripcion">
+                <th mat-header-cell *matHeaderCellDef> descripcion </th>
+                <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="editar">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-raised-button color="primary" (click)="openDialogplantasEditar(element.id_floristica)">Editar</button>
+              </td>
+              </ng-container>
+
+              <ng-container matColumnDef="eliminar">
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-raised-button color="warn" (click)="eliminarplantas(element)">Eliminar</button>
+              </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator #MatPaginator1="matPaginator"  [pageSizeOptions]="[7]" showFirstLastButtons></mat-paginator>
+          </div>
+
+         
+          <div class="mat-elevation-z8" [hidden]="showMe1" >
+            <table mat-table [dataSource]="dataSource1" >
+              <!-- Position Column -->
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+              </ng-container>
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+              </ng-container>
+          
+              <!-- Weight Column -->
+
+              <ng-container matColumnDef="editar">
+                <th mat-header-cell *matHeaderCellDef > </th>
+                <td mat-cell *matCellDef="let element" >
+                  
+                  <button mat-raised-button color="primary"  (click)="openDialogOrdenEditar(element.id)">Editar
+                  </button>
+                  
+
+                  
+
+              </td >
+              </ng-container>
+
+              <ng-container matColumnDef="eliminar">
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-raised-button color="warn" (click)="eliminarorden(element)">Eliminar</button>
+              </td>
+              
+              </ng-container>
+              
+
+              
+              <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+              <tr mat-row *matRowDef="let element; columns: displayedColumns1;"></tr>
+            </table >
+            <mat-paginator #allPaginator="matPaginator"  [pageSizeOptions]="[7]" showFirstLastButtons></mat-paginator>
+          </div>
+
+          <div class="mat-elevation-z8"  [hidden]="showMe2">
+            <table mat-table [dataSource]="dataSource2">
+              <!-- Position Column -->
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+              </ng-container>
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+              </ng-container>
+          
+              <!-- Weight Column -->
+
+              <ng-container matColumnDef="editar">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-raised-button color="primary" (click)="openDialogfamiliaEditar(element.id)">Editar</button>
+              </td>
+              </ng-container>
+
+              <ng-container matColumnDef="eliminar">
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-raised-button color="warn" (click)="eliminarfamilia(element)">Eliminar</button>
+              </td>
+              </ng-container>
+
+              
+              <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+              <tr mat-row *matRowDef="let element; columns: displayedColumns2;"></tr>
+            </table>
+          
+            <mat-paginator #aspaginator3="matPaginator"  [pageSizeOptions]="[7]" showFirstLastButtons></mat-paginator>
+          </div>
+
+
+          
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+</div> 
+</mat-sidenav-container>

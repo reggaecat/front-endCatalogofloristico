@@ -1,0 +1,28 @@
+
+<div [formGroup]="ordenform"  class="example-container" >
+  <mat-accordion class="acordion"> 
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Nombre del orden
+        </mat-panel-title>
+        <mat-panel-description>
+          Ingresar el nombre del orden de las diferentes plantas
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Por orden de jerarquía, los taxones vegetales son: Reino/ División/ Clase/ Orden/ Familia/ Tribu/ Género/ Especie/ Variedad/ Forma.</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-form-field class="form-field">
+    
+    <mat-label>Ingrese nombre del orden</mat-label>
+    <input matInput placeholder="pat@example.com" formControlName="nombre">
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div>
+
+    <div class="agregar">
+      <button mat-raised-button color="primary" (click)="guardar()">agregar</button>
+    </div>
+
+
